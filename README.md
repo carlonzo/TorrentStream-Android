@@ -11,7 +11,7 @@ Add to your dependencies:
 
 ```groovy
 dependencies {
-    api "com.butterproject.torrentstream.torrent-stream:2.5.0"
+    api "org.butterproject.torrentstream.torrent-stream:2.5.0"
 }
 ```
 
