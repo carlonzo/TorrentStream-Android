@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.github.se_bastiaan.torrentstream.exceptions;
+package org.butterproject.torrentstream.exceptions;
 
 public class DirectoryModifyException extends Exception {
 

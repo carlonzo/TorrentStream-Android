@@ -17,26 +17,32 @@
  *
  */
 
-package com.github.se_bastiaan.torrentstream.utils;
+package org.butterproject.torrentstream.utils;
 
-import android.os.Handler;
-import android.os.Looper;
+import java.io.File;
 
-public final class ThreadUtils {
+public final class FileUtils {
 
-    private ThreadUtils() throws InstantiationException {
+    private FileUtils() throws InstantiationException {
         throw new InstantiationException("This class is not created for instantiation");
     }
 
     /**
-     * Execute the given {@link Runnable} on the ui thread.
+     * Delete every item below the File location
      *
-     * @param runnable The runnable to execute.
+     * @param file Location
+     * @return {@code true} when successful delete
      */
-    public static void runOnUiThread(Runnable runnable) {
-        Thread uiThread = Looper.getMainLooper().getThread();
-        if (Thread.currentThread() != uiThread) new Handler(Looper.getMainLooper()).post(runnable);
-        else runnable.run();
+    public static boolean recursiveDelete(File file) {
+        if (file.isDirectory()) {
+            String[] children = file.list();
+            if (children == null) return false;
+            for (String child : children) {
+                recursiveDelete(new File(file, child));
+            }
+        }
+
+        return file.delete();
     }
 
 }

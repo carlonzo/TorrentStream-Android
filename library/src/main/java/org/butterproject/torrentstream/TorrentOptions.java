@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.github.se_bastiaan.torrentstream;
+package org.butterproject.torrentstream;
 
 import java.io.File;
 

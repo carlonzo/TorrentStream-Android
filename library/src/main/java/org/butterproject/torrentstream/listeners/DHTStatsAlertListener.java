@@ -17,7 +17,7 @@
  *
  */
 
-package com.github.se_bastiaan.torrentstream.listeners;
+package org.butterproject.torrentstream.listeners;
 
 import com.frostwire.jlibtorrent.AlertListener;
 import com.frostwire.jlibtorrent.DhtRoutingBucket;

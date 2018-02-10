@@ -1,4 +1,4 @@
-package com.github.se_bastiaan.torrentstream;
+package org.butterproject.torrentstream;
 
 import com.frostwire.jlibtorrent.AlertListener;
 import com.frostwire.jlibtorrent.alerts.Alert;

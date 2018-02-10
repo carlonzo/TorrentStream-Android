@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.github.se_bastiaan.torrentstream;
+package org.butterproject.torrentstream;
 
 import com.frostwire.jlibtorrent.AlertListener;
 import com.frostwire.jlibtorrent.FileStorage;
@@ -27,7 +27,7 @@ import com.frostwire.jlibtorrent.alerts.Alert;
 import com.frostwire.jlibtorrent.alerts.AlertType;
 import com.frostwire.jlibtorrent.alerts.BlockFinishedAlert;
 import com.frostwire.jlibtorrent.alerts.PieceFinishedAlert;
-import com.github.se_bastiaan.torrentstream.listeners.TorrentListener;
+import org.butterproject.torrentstream.listeners.TorrentListener;
 
 import java.io.File;
 import java.io.FileInputStream;

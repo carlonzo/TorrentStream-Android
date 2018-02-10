@@ -23,7 +23,7 @@ android {
     compileSdkVersion 27
 
     defaultConfig {
-        applicationId "com.github.se_bastiaan.torrentstreamer.sample"
+        applicationId "org.butterproject.torrentstream.sample"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1

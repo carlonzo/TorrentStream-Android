@@ -14,18 +14,21 @@
  * limitations under the License.
  */
 
-package com.github.se_bastiaan.torrentstream;
+package org.butterproject.torrentstream.listeners;
 
-public class StreamStatus {
-    public final float progress;
-    public final int bufferProgress;
-    public final int seeds;
-    public final float downloadSpeed;
+import org.butterproject.torrentstream.StreamStatus;
+import org.butterproject.torrentstream.Torrent;
 
-    protected StreamStatus(float progress, int bufferProgress, int seeds, int downloadSpeed) {
-        this.progress = progress;
-        this.bufferProgress = bufferProgress;
-        this.seeds = seeds;
-        this.downloadSpeed = downloadSpeed;
-    }
+public interface TorrentListener {
+    void onStreamPrepared(Torrent torrent);
+
+    void onStreamStarted(Torrent torrent);
+
+    void onStreamError(Torrent torrent, Exception e);
+
+    void onStreamReady(Torrent torrent);
+
+    void onStreamProgress(Torrent torrent, StreamStatus status);
+
+    void onStreamStopped();
 }

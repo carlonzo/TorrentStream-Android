@@ -17,7 +17,7 @@
  *
  */
 
-package com.github.se_bastiaan.torrentstreamer.sample;
+package org.butterproject.torrentstream.sample;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -33,11 +33,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
-import com.github.se_bastiaan.torrentstream.StreamStatus;
-import com.github.se_bastiaan.torrentstream.Torrent;
-import com.github.se_bastiaan.torrentstream.TorrentOptions;
-import com.github.se_bastiaan.torrentstream.TorrentStream;
-import com.github.se_bastiaan.torrentstream.listeners.TorrentListener;
+import org.butterproject.torrentstream.StreamStatus;
+import org.butterproject.torrentstream.Torrent;
+import org.butterproject.torrentstream.TorrentOptions;
+import org.butterproject.torrentstream.TorrentStream;
+import org.butterproject.torrentstream.listeners.TorrentListener;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -89,9 +89,9 @@ public class MainActivity extends AppCompatActivity implements TorrentListener {
         torrentStream = TorrentStream.init(torrentOptions);
         torrentStream.addListener(this);
 
-        button = (Button) findViewById(R.id.button);
+        button = findViewById(R.id.button);
         button.setOnClickListener(onClickListener);
-        progressBar = (ProgressBar) findViewById(R.id.progress);
+        progressBar = findViewById(R.id.progress);
 
         progressBar.setMax(100);
     }

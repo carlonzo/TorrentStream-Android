@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.github.se_bastiaan.torrentstream.listeners;
+package org.butterproject.torrentstream.listeners;
 
 import com.frostwire.jlibtorrent.AlertListener;
 import com.frostwire.jlibtorrent.alerts.AddTorrentAlert;
