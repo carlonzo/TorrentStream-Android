@@ -1,0 +1,55 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/code
+    docker:
+      - image: circleci/android:api-27-alpha
+    environment:
+      JVM_OPTS: -Xmx3200m
+      GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
+    steps:
+      - checkout
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "library/build.gradle" }}-{{ checksum  "sample/build.gradle" }}
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "library/build.gradle" }}-{{ checksum  "sample/build.gradle" }}
+      - run:
+          name: Run Tests
+          command: ./gradlew check
+  deploy:
+      working_directory: ~/code
+      docker:
+        - image: circleci/android:api-27-alpha
+      environment:
+        JVM_OPTS: -Xmx3200m
+        GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
+      steps:
+        - checkout
+        - run:
+            name: Download Dependencies
+            command: ./gradlew :library:androidDependencies
+        - run:
+            name: Build library
+            command: ./gradlew :library:assembleRelease
+        - store_artifacts:
+            path: library/build/outputs/aar/
+            destination: aar
+
+workflows:
+  version: 2
+  build_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - release
+                - master
