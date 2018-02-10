@@ -39,5 +39,5 @@ android {
 
 dependencies {
     implementation 'com.android.support:appcompat-v7:27.0.2'
-    implementation project(':library')
+    implementation project(':torrent-stream')
 }
