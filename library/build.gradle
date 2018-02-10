@@ -46,11 +46,11 @@ ext {
 }
 
 dependencies {
-    api "com.frostwire:jlibtorrent:$libtorrentVersion"
-    implementation "com.frostwire:jlibtorrent-android-arm:$libtorrentVersion"
-    implementation "com.frostwire:jlibtorrent-android-arm64:$libtorrentVersion"
-    implementation "com.frostwire:jlibtorrent-android-x86:$libtorrentVersion"
-    implementation "com.frostwire:jlibtorrent-android-x86_64:$libtorrentVersion"
+    compile "com.frostwire:jlibtorrent:$libtorrentVersion"
+    compile "com.frostwire:jlibtorrent-android-arm:$libtorrentVersion"
+    compile "com.frostwire:jlibtorrent-android-arm64:$libtorrentVersion"
+    compile "com.frostwire:jlibtorrent-android-x86:$libtorrentVersion"
+    compile "com.frostwire:jlibtorrent-android-x86_64:$libtorrentVersion"
 }
 
 bintray {
