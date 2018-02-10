@@ -15,9 +15,11 @@
  */
 
 apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group='org.butterproject.torrentstream'
+version = VERSION_NAME
+group = GROUP
 
 android {
     compileSdkVersion 27
@@ -49,4 +51,82 @@ dependencies {
     implementation "com.frostwire:jlibtorrent-android-arm64:$libtorrentVersion"
     implementation "com.frostwire:jlibtorrent-android-x86:$libtorrentVersion"
     implementation "com.frostwire:jlibtorrent-android-x86_64:$libtorrentVersion"
+}
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key =  System.getenv('BINTRAY_KEY')
+
+    publish = true
+
+    configurations = ['archives']
+    pkg {
+        repo = 'maven'
+        name = ARTIFACT
+        desc = DESCRIPTION
+        userOrg = ORGANIZATION
+        websiteUrl = REPO_URL
+        issueTrackerUrl = URL_ISSUES
+        vcsUrl = SCM_URL
+        licenses = ['GPL-3.0']
+        labels = ['android', 'torrent', 'streamer']
+        publicDownloadNumbers = true
+
+        githubRepo = 'butterproject/TorrentStream-Android'
+        githubReleaseNotesFile = 'README.md'
+    }
+}
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging PACKAGING
+                artifactId ARTIFACT
+                name PROJECT_NAME
+                url REPO_URL
+                licenses {
+                    license {
+                        name LICENSE_NAME
+                        url LICENSE_URL
+                        distribution 'repo'
+                    }
+                }
+                developers {
+                    developer {
+                        id "blazsolar"
+                        name "Blaz Solar"
+                    }
+                }
+                scm {
+                    url REPO_URL
+                    connection SCM_URL
+                    developerConnection SCM_URL
+                }
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    options {
+        encoding = 'UTF-8'
+        failOnError false
+    }
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
 }
