@@ -35,7 +35,7 @@ jobs:
             command: ./gradlew :library:androidDependencies
         - run:
             name: Build library
-            command: ./gradlew :library:assembleRelease
+            command: ./gradlew :library:bintrayUpload
         - store_artifacts:
             path: library/build/outputs/aar/
             destination: aar
