@@ -84,7 +84,7 @@ bintray {
         websiteUrl = REPO_URL
         issueTrackerUrl = URL_ISSUES
         vcsUrl = SCM_URL
-        licenses = ['GPL-3.0']
+        licenses = ['Apache-2.0']
         labels = ['android', 'torrent', 'streamer']
         publicDownloadNumbers = true
 
