@@ -1,4 +1,4 @@
-TorrentStream-Android [![Release](https://jitpack.io/v/TorrentStream/TorrentStream-Android.svg)](https://jitpack.io/#TorrentStream/TorrentStream-Android)
+TorrentStream-Android
 ======
 
 A torrent streamer library for Android based on [jlibtorrent](https://github.com/frostwire/frostwire-jlibtorrent).
@@ -7,21 +7,11 @@ Once built for the Popcorn Time and the [Butterproject](https://github.com/butte
 
 ## How to use
 
-Add Jitpack in your root build.gradle at the end of repositories:
-```groovy
-allprojects {
-    repositories {
-        ...
-        maven { url "https://jitpack.io" }
-    }
-}
-```
-
 Add to your dependencies:
 
 ```groovy
 dependencies {
-    compile "com.github.TorrentStream:TorrentStream-Android:${torrentstreamVersion}"
+    api "com.butterproject.torrentstream.torrent-stream:2.5.0"
 }
 ```
 
@@ -42,20 +32,20 @@ TorrentOptions torrentOptions = new TorrentOptions.Builder()
                 .build();
 
 TorrentStream torrentStream = TorrentStream.init(torrentOptions);
-torrentStream.startStream("https://butterpoject.org/test.torrent");
+torrentStream.startStream("http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4.torrent");
 ```
 
 If you want to get status information about the torrent then you might want to use `addListener` to attach a listener to your `TorrentStream` instance.
 
 ## License
 
-    Copyright 2015-2016 Sébastiaan (github.com/se-bastiaan)
+    Copyright 2018 Butter Project
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+        http://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,
