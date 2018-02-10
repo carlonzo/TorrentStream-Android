@@ -32,10 +32,10 @@ jobs:
         - checkout
         - run:
             name: Download Dependencies
-            command: ./gradlew :library:androidDependencies
+            command: ./gradlew :torrent-stream:androidDependencies
         - run:
             name: Build library
-            command: ./gradlew :library:bintrayUpload
+            command: ./gradlew :torrent-stream:bintrayUpload
         - store_artifacts:
             path: library/build/outputs/aar/
             destination: aar
