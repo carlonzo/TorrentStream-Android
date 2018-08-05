@@ -1,5 +1,6 @@
 /*
  *    Copyright 2018 Butter Project
+ *    Copyright (C) 2015-2016 Sébastiaan (github.com/se-bastiaan)
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -22,11 +23,11 @@ version = VERSION_NAME
 group = GROUP
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 28
     }
 
     buildTypes {
@@ -46,11 +47,11 @@ ext {
 }
 
 dependencies {
-    compile "com.frostwire:jlibtorrent:$libtorrentVersion"
-    compile "com.frostwire:jlibtorrent-android-arm:$libtorrentVersion"
-    compile "com.frostwire:jlibtorrent-android-arm64:$libtorrentVersion"
-    compile "com.frostwire:jlibtorrent-android-x86:$libtorrentVersion"
-    compile "com.frostwire:jlibtorrent-android-x86_64:$libtorrentVersion"
+    api "com.frostwire:jlibtorrent:$libtorrentVersion"
+    api "com.frostwire:jlibtorrent-android-arm:$libtorrentVersion"
+    api "com.frostwire:jlibtorrent-android-arm64:$libtorrentVersion"
+    api "com.frostwire:jlibtorrent-android-x86:$libtorrentVersion"
+    api "com.frostwire:jlibtorrent-android-x86_64:$libtorrentVersion"
 }
 
 bintray {
